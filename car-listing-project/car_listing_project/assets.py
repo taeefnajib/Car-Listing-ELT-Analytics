@@ -1,32 +1,3 @@
-# import sys
-# import os
-
-# from .sql_database_pipeline import load_csv_from_filesystem
-# from dagster_embedded_elt.dlt import dlt_assets, DagsterDltResource
-# from dagster import AssetExecutionContext
-
-# from dagster import AssetExecutionContext
-# from dagster_dbt import DbtCliResource, dbt_assets
-
-# from .project import dbt_project_project
-
-# # Create the pipeline and source once at module level
-# pipeline, file_source = load_csv_from_filesystem()
-
-# @dlt_assets(
-#     dlt_source=file_source,  # Use the pre-created source
-#     dlt_pipeline=pipeline,   # Use the pre-created pipeline
-#     group_name="raw",
-#     name="raw_csv_to_postgres",
-# )
-# def dlt_filesystem_assets(context: AssetExecutionContext, dlt: DagsterDltResource):
-#     yield from dlt.run(context=context)
-
-
-# @dbt_assets(manifest=dbt_project_project.manifest_path)
-# def dbt_project_dbt_assets(context: AssetExecutionContext, dbt: DbtCliResource):
-#     yield from dbt.cli(["build"], context=context).stream()
-
 import sys
 import os
 

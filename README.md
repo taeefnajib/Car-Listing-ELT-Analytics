@@ -27,72 +27,26 @@ source venv/bin/activate
 pip install -r requirements.txt
 ```
 
-### 2. Configure Data Pipeline
+### 2. Start PostgreSQL Database in Docker
 
 ```bash
-# Change directory to the project folder
-cd b2b-saas-project
-
-# Create .dlt folder if it doesn't exist
-mkdir -p .dlt
+# Start postgres in docker
+docker compose up --build
 ```
 
-Create a `secrets.toml` file in the `.dlt` folder with the following structure:
+Make sure you have a `secrets.toml` file in the `.dlt` folder with the following structure:
 
-```toml
-[sources.sql_database.credentials]
-drivername = "postgresql+psycopg2"
-database = "your_database"
-password = "your_password"
-username = "your_username"
-host = "your_host"
-port = your_port
-
-[destination.snowflake]
-dataset_name = "saas_dataset"
-
-[destination.snowflake.credentials]
-database = "your_snowflake_db"
-password = "your_password"
-username = "your_username"
-host = "your_account"
-warehouse = "your_warehouse"
-role = "your_role"
-```
 
 ### 3. Set Up Dagster
 
 ```bash
-# Install Dagster dependencies
-pip install dagster dagster-webserver
-
 # Start Dagster webserver
 dagster dev
 ```
 
 The Dagster UI will be available at http://localhost:3000
 
-### 4. Configure dbt
-
-Create a `profiles.yml` file in the `dbt_project` directory with the following structure:
-
-```yaml
-dbt_project:
-  outputs:
-    dev:
-      type: snowflake
-      account: your_account
-      user: your_username
-      password: your_password
-      role: your_role
-      database: your_database
-      warehouse: your_warehouse
-      schema: your_schema
-      threads: 1
-  target: dev
-```
-
-### 5. Run the Pipeline
+### 4. Run the Pipeline
 
 In the Dagster UI:
 1. Navigate to the Assets tab
@@ -100,7 +54,7 @@ In the Dagster UI:
 3. Click "Materialize Selected"
 
 This will:
-- Load data from Supabase to Snowflake using dlt
+- Load data from CSV to PostgreSQL database using dlt
 - Run dbt transformations on the loaded data
 
 ### 6. Set Up Apache Superset
@@ -126,8 +80,8 @@ Superset will be available at http://localhost:8088
 ### 7. Create Dashboard in Superset
 
 1. Log in to Superset using your admin credentials
-2. Go to Data → Databases and add your Snowflake connection
-3. Create new datasets from your transformed tables
+2. Go to Data → Databases and add your PostgreSQL connection
+3. Create new datasets from your analytics table
 4. Create charts using these datasets
 5. Combine charts into a dashboard
 
@@ -139,7 +93,7 @@ Superset will be available at http://localhost:8088
 
 ## Security Note
 
-Never commit files containing credentials (`secrets.toml`, `profiles.yml`, `superset_config.py`) to version control. Add them to your `.gitignore` file.
+Never commit files containing credentials (`secrets.toml`, `profiles.yml`, `superset_config.py`) to version control. Add them to your `.gitignore` file. For demonstration purpose, we have unblocked some of these files.
 
 ## Additional Resources
 
