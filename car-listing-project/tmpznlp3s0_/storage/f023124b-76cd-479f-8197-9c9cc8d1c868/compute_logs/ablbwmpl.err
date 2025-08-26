@@ -1,0 +1,78 @@
+[32m2025-01-21 07:16:55 +0600[0m - dagster - [34mDEBUG[0m - __ASSET_JOB - f023124b-76cd-479f-8197-9c9cc8d1c868 - 650571 - LOGS_CAPTURED - Started capturing logs in process (pid: 650571).
+[32m2025-01-21 07:16:56 +0600[0m - dagster - [34mDEBUG[0m - __ASSET_JOB - f023124b-76cd-479f-8197-9c9cc8d1c868 - 650571 - dbt_project_dbt_assets - STEP_START - Started execution of step "dbt_project_dbt_assets".
+[32m2025-01-21 07:16:56 +0600[0m - dagster - [34mINFO[0m - __ASSET_JOB - f023124b-76cd-479f-8197-9c9cc8d1c868 - dbt_project_dbt_assets - A dbt subsetted execution is being performed. Overriding default dbt selection arguments `['--select', 'fqn:*']` with arguments: `['dbt_project.intermediate.int_snowflake__financial_metrics', 'dbt_project.intermediate.int_snowflake__workspace_metrics', 'dbt_project.intermediate.int_snowflake__workspaces', 'dbt_project.intermediate.int_snowflake__users', 'dbt_project.intermediate.int_snowflake__projects']`.
+INFO:dagster.builtin:__ASSET_JOB - f023124b-76cd-479f-8197-9c9cc8d1c868 - dbt_project_dbt_assets - A dbt subsetted execution is being performed. Overriding default dbt selection arguments `['--select', 'fqn:*']` with arguments: `['dbt_project.intermediate.int_snowflake__financial_metrics', 'dbt_project.intermediate.int_snowflake__workspace_metrics', 'dbt_project.intermediate.int_snowflake__workspaces', 'dbt_project.intermediate.int_snowflake__users', 'dbt_project.intermediate.int_snowflake__projects']`.
+[32m2025-01-21 07:16:56 +0600[0m - dagster - [34mINFO[0m - __ASSET_JOB - f023124b-76cd-479f-8197-9c9cc8d1c868 - dbt_project_dbt_assets - Copying `/media/taeef/Projects58/Sidetrek/DataEngineering/b2b-saas-pipeline/dbt_project/target/partial_parse.msgpack` to `/media/taeef/Projects58/Sidetrek/DataEngineering/b2b-saas-pipeline/dbt_project/target/dbt_project_dbt_assets-f023124-d83bc7a/partial_parse.msgpack` to take advantage of partial parsing.
+INFO:dagster.builtin:__ASSET_JOB - f023124b-76cd-479f-8197-9c9cc8d1c868 - dbt_project_dbt_assets - Copying `/media/taeef/Projects58/Sidetrek/DataEngineering/b2b-saas-pipeline/dbt_project/target/partial_parse.msgpack` to `/media/taeef/Projects58/Sidetrek/DataEngineering/b2b-saas-pipeline/dbt_project/target/dbt_project_dbt_assets-f023124-d83bc7a/partial_parse.msgpack` to take advantage of partial parsing.
+[32m2025-01-21 07:16:56 +0600[0m - dagster - [34mINFO[0m - __ASSET_JOB - f023124b-76cd-479f-8197-9c9cc8d1c868 - dbt_project_dbt_assets - Running dbt command: `dbt build --select dbt_project.intermediate.int_snowflake__financial_metrics dbt_project.intermediate.int_snowflake__workspace_metrics dbt_project.intermediate.int_snowflake__workspaces dbt_project.intermediate.int_snowflake__users dbt_project.intermediate.int_snowflake__projects`.
+INFO:dagster.builtin:__ASSET_JOB - f023124b-76cd-479f-8197-9c9cc8d1c868 - dbt_project_dbt_assets - Running dbt command: `dbt build --select dbt_project.intermediate.int_snowflake__financial_metrics dbt_project.intermediate.int_snowflake__workspace_metrics dbt_project.intermediate.int_snowflake__workspaces dbt_project.intermediate.int_snowflake__users dbt_project.intermediate.int_snowflake__projects`.
+[32m2025-01-21 07:17:00 +0600[0m - dagster - [34mDEBUG[0m - __ASSET_JOB - f023124b-76cd-479f-8197-9c9cc8d1c868 - 650571 - dbt_project_dbt_assets - STEP_OUTPUT - Yielded output "INTERMEDIATE__int_snowflake__financial_metrics" of type "Nothing". (Type check passed).
+[32m2025-01-21 07:17:00 +0600[0m - dagster - [34mDEBUG[0m - __ASSET_JOB - f023124b-76cd-479f-8197-9c9cc8d1c868 - 650571 - dbt_project_dbt_assets - ASSET_MATERIALIZATION - Materialized value INTERMEDIATE int_snowflake__financial_metrics.
+[32m2025-01-21 07:17:00 +0600[0m - dagster - [34mDEBUG[0m - __ASSET_JOB - f023124b-76cd-479f-8197-9c9cc8d1c868 - 650571 - dbt_project_dbt_assets - STEP_OUTPUT - Yielded output "INTERMEDIATE__int_snowflake__projects" of type "Nothing". (Type check passed).
+[32m2025-01-21 07:17:01 +0600[0m - dagster - [34mDEBUG[0m - __ASSET_JOB - f023124b-76cd-479f-8197-9c9cc8d1c868 - 650571 - dbt_project_dbt_assets - ASSET_MATERIALIZATION - Materialized value INTERMEDIATE int_snowflake__projects.
+[32m2025-01-21 07:17:01 +0600[0m - dagster - [34mDEBUG[0m - __ASSET_JOB - f023124b-76cd-479f-8197-9c9cc8d1c868 - 650571 - dbt_project_dbt_assets - STEP_OUTPUT - Yielded output "INTERMEDIATE__int_snowflake__users" of type "Nothing". (Type check passed).
+[32m2025-01-21 07:17:02 +0600[0m - dagster - [34mDEBUG[0m - __ASSET_JOB - f023124b-76cd-479f-8197-9c9cc8d1c868 - 650571 - dbt_project_dbt_assets - ASSET_MATERIALIZATION - Materialized value INTERMEDIATE int_snowflake__users.
+[32m2025-01-21 07:17:02 +0600[0m - dagster - [34mDEBUG[0m - __ASSET_JOB - f023124b-76cd-479f-8197-9c9cc8d1c868 - 650571 - dbt_project_dbt_assets - ASSET_CHECK_EVALUATION - ASSET_CHECK_EVALUATION for step dbt_project_dbt_assets
+[32m2025-01-21 07:17:02 +0600[0m - dagster - [34mDEBUG[0m - __ASSET_JOB - f023124b-76cd-479f-8197-9c9cc8d1c868 - 650571 - dbt_project_dbt_assets - STEP_OUTPUT - Yielded output "INTERMEDIATE__int_snowflake__financial_metrics_not_null_int_snowflake__financial_metrics_workspace_id" of type "Any". (Type check passed).
+[32m2025-01-21 07:17:02 +0600[0m - dagster - [34mDEBUG[0m - __ASSET_JOB - f023124b-76cd-479f-8197-9c9cc8d1c868 - 650571 - dbt_project_dbt_assets - ASSET_CHECK_EVALUATION - ASSET_CHECK_EVALUATION for step dbt_project_dbt_assets
+[32m2025-01-21 07:17:02 +0600[0m - dagster - [34mDEBUG[0m - __ASSET_JOB - f023124b-76cd-479f-8197-9c9cc8d1c868 - 650571 - dbt_project_dbt_assets - STEP_OUTPUT - Yielded output "INTERMEDIATE__int_snowflake__financial_metrics_unique_int_snowflake__financial_metrics_workspace_id" of type "Any". (Type check passed).
+[32m2025-01-21 07:17:02 +0600[0m - dagster - [34mDEBUG[0m - __ASSET_JOB - f023124b-76cd-479f-8197-9c9cc8d1c868 - 650571 - dbt_project_dbt_assets - ASSET_CHECK_EVALUATION - ASSET_CHECK_EVALUATION for step dbt_project_dbt_assets
+[32m2025-01-21 07:17:02 +0600[0m - dagster - [34mDEBUG[0m - __ASSET_JOB - f023124b-76cd-479f-8197-9c9cc8d1c868 - 650571 - dbt_project_dbt_assets - STEP_OUTPUT - Yielded output "INTERMEDIATE__int_snowflake__projects_not_null_int_snowflake__projects_project_id" of type "Any". (Type check passed).
+[32m2025-01-21 07:17:03 +0600[0m - dagster - [34mDEBUG[0m - __ASSET_JOB - f023124b-76cd-479f-8197-9c9cc8d1c868 - 650571 - dbt_project_dbt_assets - ASSET_CHECK_EVALUATION - ASSET_CHECK_EVALUATION for step dbt_project_dbt_assets
+[32m2025-01-21 07:17:03 +0600[0m - dagster - [34mDEBUG[0m - __ASSET_JOB - f023124b-76cd-479f-8197-9c9cc8d1c868 - 650571 - dbt_project_dbt_assets - STEP_OUTPUT - Yielded output "INTERMEDIATE__int_snowflake__projects_unique_int_snowflake__projects_project_id" of type "Any". (Type check passed).
+[32m2025-01-21 07:17:03 +0600[0m - dagster - [34mDEBUG[0m - __ASSET_JOB - f023124b-76cd-479f-8197-9c9cc8d1c868 - 650571 - dbt_project_dbt_assets - ASSET_CHECK_EVALUATION - ASSET_CHECK_EVALUATION for step dbt_project_dbt_assets
+[32m2025-01-21 07:17:03 +0600[0m - dagster - [34mDEBUG[0m - __ASSET_JOB - f023124b-76cd-479f-8197-9c9cc8d1c868 - 650571 - dbt_project_dbt_assets - STEP_OUTPUT - Yielded output "INTERMEDIATE__int_snowflake__users_not_null_int_snowflake__users_user_id" of type "Any". (Type check passed).
+[32m2025-01-21 07:17:03 +0600[0m - dagster - [34mDEBUG[0m - __ASSET_JOB - f023124b-76cd-479f-8197-9c9cc8d1c868 - 650571 - dbt_project_dbt_assets - ASSET_CHECK_EVALUATION - ASSET_CHECK_EVALUATION for step dbt_project_dbt_assets
+[32m2025-01-21 07:17:03 +0600[0m - dagster - [34mDEBUG[0m - __ASSET_JOB - f023124b-76cd-479f-8197-9c9cc8d1c868 - 650571 - dbt_project_dbt_assets - STEP_OUTPUT - Yielded output "INTERMEDIATE__int_snowflake__users_unique_int_snowflake__users_user_id" of type "Any". (Type check passed).
+[32m2025-01-21 07:17:04 +0600[0m - dagster - [34mINFO[0m - __ASSET_JOB - f023124b-76cd-479f-8197-9c9cc8d1c868 - dbt_project_dbt_assets - Finished dbt command: `dbt build --select dbt_project.intermediate.int_snowflake__financial_metrics dbt_project.intermediate.int_snowflake__workspace_metrics dbt_project.intermediate.int_snowflake__workspaces dbt_project.intermediate.int_snowflake__users dbt_project.intermediate.int_snowflake__projects`.
+INFO:dagster.builtin:__ASSET_JOB - f023124b-76cd-479f-8197-9c9cc8d1c868 - dbt_project_dbt_assets - Finished dbt command: `dbt build --select dbt_project.intermediate.int_snowflake__financial_metrics dbt_project.intermediate.int_snowflake__workspace_metrics dbt_project.intermediate.int_snowflake__workspaces dbt_project.intermediate.int_snowflake__users dbt_project.intermediate.int_snowflake__projects`.
+[32m2025-01-21 07:17:04 +0600[0m - dagster - [34mERROR[0m - [31m__ASSET_JOB - f023124b-76cd-479f-8197-9c9cc8d1c868 - 650571 - dbt_project_dbt_assets - STEP_FAILURE - Execution of step "dbt_project_dbt_assets" failed.
+
+dagster_dbt.errors.DagsterDbtCliRuntimeError: The dbt CLI process with command
+
+`dbt build --select dbt_project.intermediate.int_snowflake__financial_metrics dbt_project.intermediate.int_snowflake__workspace_metrics dbt_project.intermediate.int_snowflake__workspaces dbt_project.intermediate.int_snowflake__users dbt_project.intermediate.int_snowflake__projects`
+
+failed with exit code `1`. Check the stdout in the Dagster compute logs for the full information about the error, or view the dbt debug log: /media/taeef/Projects58/Sidetrek/DataEngineering/b2b-saas-pipeline/dbt_project/target/dbt_project_dbt_assets-f023124-d83bc7a/dbt.log.
+
+Errors parsed from dbt logs:
+
+4 of 15 ERROR creating sql table model PROJECT_INTERMEDIATE.int_snowflake__workspace_metrics  [[31mERROR[0m in 0.13s]
+
+5 of 15 ERROR creating sql table model PROJECT_INTERMEDIATE.int_snowflake__workspaces  [[31mERROR[0m in 0.15s]
+
+  Database Error in model int_snowflake__workspace_metrics (models/intermediate/int_snowflake__workspace_metrics.sql)
+  000904 (42000): SQL compilation error: error line 31 at position 11
+  invalid identifier 'U.WORKSPACE_ID'
+  compiled code at target/dbt_project_dbt_assets-f023124-d83bc7a/run/dbt_project/models/intermediate/int_snowflake__workspace_metrics.sql
+
+  Database Error in model int_snowflake__workspaces (models/intermediate/int_snowflake__workspaces.sql)
+  002025 (42S21): SQL compilation error:
+  duplicate column name 'TOTAL_PROJECTS'
+  compiled code at target/dbt_project_dbt_assets-f023124-d83bc7a/run/dbt_project/models/intermediate/int_snowflake__workspaces.sql
+
+Stack Trace:
+  File "/media/taeef/Projects58/Sidetrek/DataEngineering/b2b-saas-pipeline/venv/lib/python3.10/site-packages/dagster/_core/execution/plan/execute_plan.py", line 245, in dagster_event_sequence_for_step
+    yield from check.generator(step_events)
+  File "/media/taeef/Projects58/Sidetrek/DataEngineering/b2b-saas-pipeline/venv/lib/python3.10/site-packages/dagster/_core/execution/plan/execute_step.py", line 501, in core_dagster_event_sequence_for_step
+    for user_event in _step_output_error_checked_user_event_sequence(
+  File "/media/taeef/Projects58/Sidetrek/DataEngineering/b2b-saas-pipeline/venv/lib/python3.10/site-packages/dagster/_core/execution/plan/execute_step.py", line 184, in _step_output_error_checked_user_event_sequence
+    for user_event in user_event_sequence:
+  File "/media/taeef/Projects58/Sidetrek/DataEngineering/b2b-saas-pipeline/venv/lib/python3.10/site-packages/dagster/_core/execution/plan/execute_step.py", line 88, in _process_asset_results_to_events
+    for user_event in user_event_sequence:
+  File "/media/taeef/Projects58/Sidetrek/DataEngineering/b2b-saas-pipeline/venv/lib/python3.10/site-packages/dagster/_core/execution/plan/compute.py", line 190, in execute_core_compute
+    for step_output in _yield_compute_results(step_context, inputs, compute_fn, compute_context):
+  File "/media/taeef/Projects58/Sidetrek/DataEngineering/b2b-saas-pipeline/venv/lib/python3.10/site-packages/dagster/_core/execution/plan/compute.py", line 159, in _yield_compute_results
+    for event in iterate_with_context(
+  File "/media/taeef/Projects58/Sidetrek/DataEngineering/b2b-saas-pipeline/venv/lib/python3.10/site-packages/dagster/_utils/__init__.py", line 480, in iterate_with_context
+    next_output = next(iterator)
+  File "/media/taeef/Projects58/Sidetrek/DataEngineering/b2b-saas-pipeline/b2b-saas-project/b2b_saas_project/assets.py", line 28, in dbt_project_dbt_assets
+    yield from dbt.cli(["build"], context=context).stream()
+  File "/media/taeef/Projects58/Sidetrek/DataEngineering/b2b-saas-pipeline/venv/lib/python3.10/site-packages/dagster_dbt/core/dbt_event_iterator.py", line 203, in __next__
+    return next(self._inner_iterator)
+  File "/media/taeef/Projects58/Sidetrek/DataEngineering/b2b-saas-pipeline/venv/lib/python3.10/site-packages/dagster_dbt/core/dbt_cli_invocation.py", line 275, in _stream_asset_events
+    for event in self.stream_raw_events():
+  File "/media/taeef/Projects58/Sidetrek/DataEngineering/b2b-saas-pipeline/venv/lib/python3.10/site-packages/dagster_dbt/core/dbt_cli_invocation.py", line 368, in stream_raw_events
+    self._raise_on_error()
+  File "/media/taeef/Projects58/Sidetrek/DataEngineering/b2b-saas-pipeline/venv/lib/python3.10/site-packages/dagster_dbt/core/dbt_cli_invocation.py", line 461, in _raise_on_error
+    raise error
+[0m

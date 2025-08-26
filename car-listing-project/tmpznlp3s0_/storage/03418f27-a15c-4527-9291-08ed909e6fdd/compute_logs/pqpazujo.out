@@ -1,0 +1,27 @@
+Running with dbt=1.9.1
+Registered adapter: snowflake=1.9.0
+Found 18 models, 36 data tests, 16 sources, 470 macros, 2 groups
+
+Concurrency: 1 threads (target='dev')
+
+1 of 6 START sql table model PROJECT_INTERMEDIATE.int_snowflake__workspace_metrics  [RUN]
+1 of 6 ERROR creating sql table model PROJECT_INTERMEDIATE.int_snowflake__workspace_metrics  [[31mERROR[0m in 0.17s]
+2 of 6 START sql table model PROJECT_INTERMEDIATE.int_snowflake__workspaces .... [RUN]
+2 of 6 OK created sql table model PROJECT_INTERMEDIATE.int_snowflake__workspaces  [[32mSUCCESS 1[0m in 1.06s]
+3 of 6 SKIP test not_null_int_snowflake__workspace_metrics_workspace_id ........ [[33mSKIP[0m]
+4 of 6 SKIP test unique_int_snowflake__workspace_metrics_workspace_id .......... [[33mSKIP[0m]
+5 of 6 START test not_null_int_snowflake__workspaces_workspace_id .............. [RUN]
+5 of 6 PASS not_null_int_snowflake__workspaces_workspace_id .................... [[32mPASS[0m in 0.22s]
+6 of 6 START test unique_int_snowflake__workspaces_workspace_id ................ [RUN]
+6 of 6 PASS unique_int_snowflake__workspaces_workspace_id ...................... [[32mPASS[0m in 0.22s]
+
+Finished running 2 table models, 4 data tests in 0 hours 0 minutes and 2.91 seconds (2.91s).
+
+[31mCompleted with 1 error, 0 partial successes, and 0 warnings:[0m
+
+  Database Error in model int_snowflake__workspace_metrics (models/intermediate/int_snowflake__workspace_metrics.sql)
+  000904 (42000): SQL compilation error: error line 58 at position 4
+  invalid identifier 'W.DAILY_ACTIVE_USERS'
+  compiled code at target/dbt_project_dbt_assets-03418f2-dbae76e/run/dbt_project/models/intermediate/int_snowflake__workspace_metrics.sql
+
+Done. PASS=3 WARN=0 ERROR=1 SKIP=2 TOTAL=6

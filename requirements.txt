@@ -1,0 +1,8 @@
+dagster
+dagster-webserver
+dagster-embedded-elt
+dlt[postgres]
+psycopg2-binary
+dbt-postgres
+dagster-dbt
+pandas

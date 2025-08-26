@@ -1,0 +1,121 @@
+version: 2
+
+groups:
+  - name: staging
+    owner:
+      name: sidetrek
+
+sources:
+  - name: raw_data
+    database: SAAS_SF
+    schema: raw_data
+    tables:
+      - name: users
+        meta:
+          dagster:
+            asset_key: "dlt_sql_database_users"
+      - name: workspaces
+        meta:
+          dagster:
+            asset_key: "dlt_sql_database_workspaces"
+      - name: invoices
+        meta:
+          dagster:
+            asset_key: "dlt_sql_database_invoices"
+      - name: payments
+        meta:
+          dagster:
+            asset_key: "dlt_sql_database_payments"
+      - name: projects
+        meta:
+          dagster:
+            asset_key: "dlt_sql_database_projects"
+      - name: tasks
+        meta:
+          dagster:
+            asset_key: "dlt_sql_database_tasks"
+      - name: subscriptions
+        meta:
+          dagster:
+            asset_key: "dlt_sql_database_subscriptions"
+      - name: historical_subscriptions
+        meta:
+          dagster:
+            asset_key: "dlt_sql_database_historical_subscriptions"
+      - name: comments
+        meta:
+          dagster:
+            asset_key: "dlt_sql_database_comments"
+
+models:
+  - name: stg_snowflake__users
+    description: Staging model for users
+    columns:
+      - name: user_id
+        tests:
+          - unique
+          - not_null
+
+  - name: stg_snowflake__workspaces
+    description: Staging model for workspaces
+    columns:
+      - name: workspace_id
+        tests:
+          - unique
+          - not_null
+
+  - name: stg_snowflake__projects
+    description: Staging model for projects
+    columns:
+      - name: project_id
+        tests:
+          - unique
+          - not_null
+
+  - name: stg_snowflake__tasks
+    description: Staging model for tasks
+    columns:
+      - name: task_id
+        tests:
+          - unique
+          - not_null
+
+  - name: stg_snowflake__comments
+    description: Staging model for comments
+    columns:
+      - name: comment_id
+        tests:
+          - unique
+          - not_null
+
+  - name: stg_snowflake__subscriptions
+    description: Staging model for subscriptions
+    columns:
+      - name: subscription_id
+        tests:
+          - unique
+          - not_null
+
+  - name: stg_snowflake__historical_subscriptions
+    description: Staging model for historical subscriptions
+    columns:
+      - name: subscription_id
+        tests:
+          - unique
+          - not_null
+
+  - name: stg_snowflake__invoices
+    description: Staging model for invoices
+    columns:
+      - name: invoice_id
+        tests:
+          - unique
+          - not_null
+
+  - name: stg_snowflake__payments
+    description: Staging model for payments
+    columns:
+      - name: payment_id
+        tests:
+          - unique
+          - not_null

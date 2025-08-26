@@ -1,0 +1,21 @@
+Running with dbt=1.9.1
+Registered adapter: snowflake=1.9.0
+Found 18 models, 36 data tests, 16 sources, 470 macros, 2 groups
+
+Concurrency: 1 threads (target='dev')
+
+1 of 3 START sql table model PROJECT_INTERMEDIATE.int_snowflake__workspace_metrics  [RUN]
+1 of 3 ERROR creating sql table model PROJECT_INTERMEDIATE.int_snowflake__workspace_metrics  [[31mERROR[0m in 0.26s]
+2 of 3 SKIP test not_null_int_snowflake__workspace_metrics_workspace_id ........ [[33mSKIP[0m]
+3 of 3 SKIP test unique_int_snowflake__workspace_metrics_workspace_id .......... [[33mSKIP[0m]
+
+Finished running 1 table model, 2 data tests in 0 hours 0 minutes and 1.78 seconds (1.78s).
+
+[31mCompleted with 1 error, 0 partial successes, and 0 warnings:[0m
+
+  Database Error in model int_snowflake__workspace_metrics (models/intermediate/int_snowflake__workspace_metrics.sql)
+  002025 (42S21): SQL compilation error:
+  duplicate column name 'TOTAL_USERS'
+  compiled code at target/dbt_project_dbt_assets-1163112-0c4eb17/run/dbt_project/models/intermediate/int_snowflake__workspace_metrics.sql
+
+Done. PASS=0 WARN=0 ERROR=1 SKIP=2 TOTAL=3

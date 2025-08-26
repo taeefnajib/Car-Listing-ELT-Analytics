@@ -1,0 +1,60 @@
+Running with dbt=1.9.1
+Registered adapter: snowflake=1.9.0
+Found 18 models, 36 data tests, 16 sources, 470 macros, 2 groups
+
+Concurrency: 1 threads (target='dev')
+
+1 of 24 START sql table model SAAS_RAW_STAGING.stg_snowflake__comments ......... [RUN]
+1 of 24 OK created sql table model SAAS_RAW_STAGING.stg_snowflake__comments .... [[32mSUCCESS 1[0m in 1.09s]
+2 of 24 START sql table model SAAS_RAW_STAGING.stg_snowflake__invoices ......... [RUN]
+2 of 24 OK created sql table model SAAS_RAW_STAGING.stg_snowflake__invoices .... [[32mSUCCESS 1[0m in 0.96s]
+3 of 24 START sql table model SAAS_RAW_STAGING.stg_snowflake__payments ......... [RUN]
+3 of 24 OK created sql table model SAAS_RAW_STAGING.stg_snowflake__payments .... [[32mSUCCESS 1[0m in 0.80s]
+4 of 24 START sql view model SAAS_RAW_STAGING.stg_snowflake__projects .......... [RUN]
+4 of 24 OK created sql view model SAAS_RAW_STAGING.stg_snowflake__projects ..... [[32mSUCCESS 1[0m in 0.30s]
+5 of 24 START sql view model SAAS_RAW_STAGING.stg_snowflake__subscriptions ..... [RUN]
+5 of 24 OK created sql view model SAAS_RAW_STAGING.stg_snowflake__subscriptions  [[32mSUCCESS 1[0m in 0.26s]
+6 of 24 START sql table model SAAS_RAW_STAGING.stg_snowflake__tasks ............ [RUN]
+6 of 24 OK created sql table model SAAS_RAW_STAGING.stg_snowflake__tasks ....... [[32mSUCCESS 1[0m in 0.87s]
+7 of 24 START sql view model SAAS_RAW_STAGING.stg_snowflake__users ............. [RUN]
+7 of 24 OK created sql view model SAAS_RAW_STAGING.stg_snowflake__users ........ [[32mSUCCESS 1[0m in 0.30s]
+8 of 24 START sql view model SAAS_RAW_STAGING.stg_snowflake__workspaces ........ [RUN]
+8 of 24 OK created sql view model SAAS_RAW_STAGING.stg_snowflake__workspaces ... [[32mSUCCESS 1[0m in 0.36s]
+9 of 24 START test not_null_stg_snowflake__comments_comment_id ................. [RUN]
+9 of 24 PASS not_null_stg_snowflake__comments_comment_id ....................... [[32mPASS[0m in 0.26s]
+10 of 24 START test unique_stg_snowflake__comments_comment_id .................. [RUN]
+10 of 24 PASS unique_stg_snowflake__comments_comment_id ........................ [[32mPASS[0m in 0.31s]
+11 of 24 START test not_null_stg_snowflake__invoices_invoice_id ................ [RUN]
+11 of 24 PASS not_null_stg_snowflake__invoices_invoice_id ...................... [[32mPASS[0m in 0.40s]
+12 of 24 START test unique_stg_snowflake__invoices_invoice_id .................. [RUN]
+12 of 24 PASS unique_stg_snowflake__invoices_invoice_id ........................ [[32mPASS[0m in 0.22s]
+13 of 24 START test not_null_stg_snowflake__payments_payment_id ................ [RUN]
+13 of 24 PASS not_null_stg_snowflake__payments_payment_id ...................... [[32mPASS[0m in 0.20s]
+14 of 24 START test unique_stg_snowflake__payments_payment_id .................. [RUN]
+14 of 24 PASS unique_stg_snowflake__payments_payment_id ........................ [[32mPASS[0m in 0.34s]
+15 of 24 START test not_null_stg_snowflake__projects_project_id ................ [RUN]
+15 of 24 PASS not_null_stg_snowflake__projects_project_id ...................... [[32mPASS[0m in 0.26s]
+16 of 24 START test unique_stg_snowflake__projects_project_id .................. [RUN]
+16 of 24 PASS unique_stg_snowflake__projects_project_id ........................ [[32mPASS[0m in 0.48s]
+17 of 24 START test not_null_stg_snowflake__subscriptions_subscription_id ...... [RUN]
+17 of 24 PASS not_null_stg_snowflake__subscriptions_subscription_id ............ [[32mPASS[0m in 0.28s]
+18 of 24 START test unique_stg_snowflake__subscriptions_subscription_id ........ [RUN]
+18 of 24 PASS unique_stg_snowflake__subscriptions_subscription_id .............. [[32mPASS[0m in 0.42s]
+19 of 24 START test not_null_stg_snowflake__tasks_task_id ...................... [RUN]
+19 of 24 PASS not_null_stg_snowflake__tasks_task_id ............................ [[32mPASS[0m in 0.17s]
+20 of 24 START test unique_stg_snowflake__tasks_task_id ........................ [RUN]
+20 of 24 PASS unique_stg_snowflake__tasks_task_id .............................. [[32mPASS[0m in 0.19s]
+21 of 24 START test not_null_stg_snowflake__users_user_id ...................... [RUN]
+21 of 24 PASS not_null_stg_snowflake__users_user_id ............................ [[32mPASS[0m in 0.36s]
+22 of 24 START test unique_stg_snowflake__users_user_id ........................ [RUN]
+22 of 24 PASS unique_stg_snowflake__users_user_id .............................. [[32mPASS[0m in 0.52s]
+23 of 24 START test not_null_stg_snowflake__workspaces_workspace_id ............ [RUN]
+23 of 24 PASS not_null_stg_snowflake__workspaces_workspace_id .................. [[32mPASS[0m in 0.25s]
+24 of 24 START test unique_stg_snowflake__workspaces_workspace_id .............. [RUN]
+24 of 24 PASS unique_stg_snowflake__workspaces_workspace_id .................... [[32mPASS[0m in 0.36s]
+
+Finished running 4 table models, 16 data tests, 4 view models in 0 hours 0 minutes and 11.59 seconds (11.59s).
+
+[32mCompleted successfully[0m
+
+Done. PASS=24 WARN=0 ERROR=0 SKIP=0 TOTAL=24

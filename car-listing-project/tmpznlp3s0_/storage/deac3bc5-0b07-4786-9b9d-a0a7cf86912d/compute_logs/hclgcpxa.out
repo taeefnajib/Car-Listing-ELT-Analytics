@@ -1,0 +1,18 @@
+Running with dbt=1.9.1
+Registered adapter: snowflake=1.9.0
+Found 18 models, 36 data tests, 16 sources, 470 macros, 2 groups
+
+Concurrency: 1 threads (target='dev')
+
+1 of 3 START sql table model PROJECT_INTERMEDIATE.int_snowflake__workspace_metrics  [RUN]
+1 of 3 OK created sql table model PROJECT_INTERMEDIATE.int_snowflake__workspace_metrics  [[32mSUCCESS 1[0m in 0.86s]
+2 of 3 START test not_null_int_snowflake__workspace_metrics_workspace_id ....... [RUN]
+2 of 3 PASS not_null_int_snowflake__workspace_metrics_workspace_id ............. [[32mPASS[0m in 0.26s]
+3 of 3 START test unique_int_snowflake__workspace_metrics_workspace_id ......... [RUN]
+3 of 3 PASS unique_int_snowflake__workspace_metrics_workspace_id ............... [[32mPASS[0m in 0.23s]
+
+Finished running 1 table model, 2 data tests in 0 hours 0 minutes and 2.88 seconds (2.88s).
+
+[32mCompleted successfully[0m
+
+Done. PASS=3 WARN=0 ERROR=0 SKIP=0 TOTAL=3

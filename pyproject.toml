@@ -1,0 +1,35 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "car_listing_project"
+version = "0.1.0"
+description = "This project builds an ELT pipeline to take data from CSV, loads it in Postgres and finally transform it. Additionally, it visualizes the dataset using Superset."
+readme = "README.md"
+requires-python = ">=3.9,<3.13"
+dependencies = [
+    "dagster",
+    "dagster-cloud",
+    "dagster-webserver",
+    "dagster-dbt",
+    "dagster-embedded-elt",
+    "dbt-postgres",
+    "dlt[postgres]",
+    "psycopg2-binary",
+    "urllib3<2.0.0",
+    "requests-toolbelt"
+]
+
+[project.optional-dependencies]
+dev = [
+    "dagster-webserver", 
+    "pytest",
+]
+
+[tool.dagster]
+module_name = "car_listing_project.definitions"
+project_name = "car_listing_project"
+
+[tool.setuptools.packages.find]
+exclude=["car_listing_project_tests"]

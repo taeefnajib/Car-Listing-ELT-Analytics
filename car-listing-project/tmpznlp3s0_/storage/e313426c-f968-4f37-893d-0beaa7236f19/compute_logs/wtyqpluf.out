@@ -1,0 +1,84 @@
+Running with dbt=1.9.1
+Registered adapter: snowflake=1.9.0
+Found 18 models, 36 data tests, 16 sources, 470 macros, 2 groups
+
+Concurrency: 1 threads (target='dev')
+
+1 of 24 START sql table model SAAS_RAW_STAGING.stg_snowflake__comments ......... [RUN]
+1 of 24 ERROR creating sql table model SAAS_RAW_STAGING.stg_snowflake__comments  [[31mERROR[0m in 0.15s]
+2 of 24 START sql table model SAAS_RAW_STAGING.stg_snowflake__invoices ......... [RUN]
+2 of 24 ERROR creating sql table model SAAS_RAW_STAGING.stg_snowflake__invoices  [[31mERROR[0m in 0.15s]
+3 of 24 START sql table model SAAS_RAW_STAGING.stg_snowflake__payments ......... [RUN]
+3 of 24 ERROR creating sql table model SAAS_RAW_STAGING.stg_snowflake__payments  [[31mERROR[0m in 0.13s]
+4 of 24 START sql view model SAAS_RAW_STAGING.stg_snowflake__projects .......... [RUN]
+4 of 24 ERROR creating sql view model SAAS_RAW_STAGING.stg_snowflake__projects . [[31mERROR[0m in 0.14s]
+5 of 24 START sql view model SAAS_RAW_STAGING.stg_snowflake__subscriptions ..... [RUN]
+5 of 24 ERROR creating sql view model SAAS_RAW_STAGING.stg_snowflake__subscriptions  [[31mERROR[0m in 0.12s]
+6 of 24 START sql table model SAAS_RAW_STAGING.stg_snowflake__tasks ............ [RUN]
+6 of 24 ERROR creating sql table model SAAS_RAW_STAGING.stg_snowflake__tasks ... [[31mERROR[0m in 0.12s]
+7 of 24 START sql view model SAAS_RAW_STAGING.stg_snowflake__users ............. [RUN]
+7 of 24 ERROR creating sql view model SAAS_RAW_STAGING.stg_snowflake__users .... [[31mERROR[0m in 0.12s]
+8 of 24 START sql view model SAAS_RAW_STAGING.stg_snowflake__workspaces ........ [RUN]
+8 of 24 ERROR creating sql view model SAAS_RAW_STAGING.stg_snowflake__workspaces  [[31mERROR[0m in 0.12s]
+9 of 24 SKIP test not_null_stg_snowflake__comments_comment_id .................. [[33mSKIP[0m]
+10 of 24 SKIP test unique_stg_snowflake__comments_comment_id ................... [[33mSKIP[0m]
+11 of 24 SKIP test not_null_stg_snowflake__invoices_invoice_id ................. [[33mSKIP[0m]
+12 of 24 SKIP test unique_stg_snowflake__invoices_invoice_id ................... [[33mSKIP[0m]
+13 of 24 SKIP test not_null_stg_snowflake__payments_payment_id ................. [[33mSKIP[0m]
+14 of 24 SKIP test unique_stg_snowflake__payments_payment_id ................... [[33mSKIP[0m]
+15 of 24 SKIP test not_null_stg_snowflake__projects_project_id ................. [[33mSKIP[0m]
+16 of 24 SKIP test unique_stg_snowflake__projects_project_id ................... [[33mSKIP[0m]
+17 of 24 SKIP test not_null_stg_snowflake__subscriptions_subscription_id ....... [[33mSKIP[0m]
+18 of 24 SKIP test unique_stg_snowflake__subscriptions_subscription_id ......... [[33mSKIP[0m]
+19 of 24 SKIP test not_null_stg_snowflake__tasks_task_id ....................... [[33mSKIP[0m]
+20 of 24 SKIP test unique_stg_snowflake__tasks_task_id ......................... [[33mSKIP[0m]
+21 of 24 SKIP test not_null_stg_snowflake__users_user_id ....................... [[33mSKIP[0m]
+22 of 24 SKIP test unique_stg_snowflake__users_user_id ......................... [[33mSKIP[0m]
+23 of 24 SKIP test not_null_stg_snowflake__workspaces_workspace_id ............. [[33mSKIP[0m]
+24 of 24 SKIP test unique_stg_snowflake__workspaces_workspace_id ............... [[33mSKIP[0m]
+
+Finished running 4 table models, 16 data tests, 4 view models in 0 hours 0 minutes and 2.48 seconds (2.48s).
+
+[31mCompleted with 8 errors, 0 partial successes, and 0 warnings:[0m
+
+  Database Error in model stg_snowflake__comments (models/staging/stg_snowflake__comments.sql)
+  002003 (02000): SQL compilation error:
+  Schema 'SAAS_SF.SAAS_RAW' does not exist or not authorized.
+  compiled code at target/dbt_project_dbt_assets-e313426-926eff7/run/dbt_project/models/staging/stg_snowflake__comments.sql
+
+  Database Error in model stg_snowflake__invoices (models/staging/stg_snowflake__invoices.sql)
+  002003 (02000): SQL compilation error:
+  Schema 'SAAS_SF.SAAS_RAW' does not exist or not authorized.
+  compiled code at target/dbt_project_dbt_assets-e313426-926eff7/run/dbt_project/models/staging/stg_snowflake__invoices.sql
+
+  Database Error in model stg_snowflake__payments (models/staging/stg_snowflake__payments.sql)
+  002003 (02000): SQL compilation error:
+  Schema 'SAAS_SF.SAAS_RAW' does not exist or not authorized.
+  compiled code at target/dbt_project_dbt_assets-e313426-926eff7/run/dbt_project/models/staging/stg_snowflake__payments.sql
+
+  Database Error in model stg_snowflake__projects (models/staging/stg_snowflake__projects.sql)
+  002003 (02000): SQL compilation error:
+  Schema 'SAAS_SF.SAAS_RAW' does not exist or not authorized.
+  compiled code at target/dbt_project_dbt_assets-e313426-926eff7/run/dbt_project/models/staging/stg_snowflake__projects.sql
+
+  Database Error in model stg_snowflake__subscriptions (models/staging/stg_snowflake__subscriptions.sql)
+  002003 (02000): SQL compilation error:
+  Schema 'SAAS_SF.SAAS_RAW' does not exist or not authorized.
+  compiled code at target/dbt_project_dbt_assets-e313426-926eff7/run/dbt_project/models/staging/stg_snowflake__subscriptions.sql
+
+  Database Error in model stg_snowflake__tasks (models/staging/stg_snowflake__tasks.sql)
+  002003 (02000): SQL compilation error:
+  Schema 'SAAS_SF.SAAS_RAW' does not exist or not authorized.
+  compiled code at target/dbt_project_dbt_assets-e313426-926eff7/run/dbt_project/models/staging/stg_snowflake__tasks.sql
+
+  Database Error in model stg_snowflake__users (models/staging/stg_snowflake__users.sql)
+  002003 (02000): SQL compilation error:
+  Schema 'SAAS_SF.SAAS_RAW' does not exist or not authorized.
+  compiled code at target/dbt_project_dbt_assets-e313426-926eff7/run/dbt_project/models/staging/stg_snowflake__users.sql
+
+  Database Error in model stg_snowflake__workspaces (models/staging/stg_snowflake__workspaces.sql)
+  002003 (02000): SQL compilation error:
+  Schema 'SAAS_SF.SAAS_RAW' does not exist or not authorized.
+  compiled code at target/dbt_project_dbt_assets-e313426-926eff7/run/dbt_project/models/staging/stg_snowflake__workspaces.sql
+
+Done. PASS=0 WARN=0 ERROR=8 SKIP=16 TOTAL=24

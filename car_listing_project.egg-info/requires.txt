@@ -1,0 +1,14 @@
+dagster
+dagster-cloud
+dagster-webserver
+dagster-dbt
+dagster-embedded-elt
+dbt-postgres
+dlt[postgres]
+psycopg2-binary
+urllib3<2.0.0
+requests-toolbelt
+
+[dev]
+dagster-webserver
+pytest

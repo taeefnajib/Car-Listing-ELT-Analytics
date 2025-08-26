@@ -1,0 +1,12 @@
+dagster
+dagster-cloud
+dagster-embedded-elt
+dagster-dbt
+psycopg2-binary
+humanize
+pymysql
+dlt[postgres]
+
+[dev]
+dagster-webserver
+pytest

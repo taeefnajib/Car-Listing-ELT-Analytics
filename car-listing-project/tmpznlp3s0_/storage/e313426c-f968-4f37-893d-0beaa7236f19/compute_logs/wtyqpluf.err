@@ -1,0 +1,102 @@
+[32m2025-01-21 06:51:44 +0600[0m - dagster - [34mDEBUG[0m - __ASSET_JOB - e313426c-f968-4f37-893d-0beaa7236f19 - 591839 - LOGS_CAPTURED - Started capturing logs in process (pid: 591839).
+[32m2025-01-21 06:51:44 +0600[0m - dagster - [34mDEBUG[0m - __ASSET_JOB - e313426c-f968-4f37-893d-0beaa7236f19 - 591839 - dbt_project_dbt_assets - STEP_START - Started execution of step "dbt_project_dbt_assets".
+[32m2025-01-21 06:51:44 +0600[0m - dagster - [34mINFO[0m - __ASSET_JOB - e313426c-f968-4f37-893d-0beaa7236f19 - dbt_project_dbt_assets - A dbt subsetted execution is being performed. Overriding default dbt selection arguments `['--select', 'fqn:*']` with arguments: `['dbt_project.staging.stg_snowflake__tasks', 'dbt_project.staging.stg_snowflake__subscriptions', 'dbt_project.staging.stg_snowflake__comments', 'dbt_project.staging.stg_snowflake__users', 'dbt_project.staging.stg_snowflake__workspaces', 'dbt_project.staging.stg_snowflake__projects', 'dbt_project.staging.stg_snowflake__invoices', 'dbt_project.staging.stg_snowflake__payments']`.
+INFO:dagster.builtin:__ASSET_JOB - e313426c-f968-4f37-893d-0beaa7236f19 - dbt_project_dbt_assets - A dbt subsetted execution is being performed. Overriding default dbt selection arguments `['--select', 'fqn:*']` with arguments: `['dbt_project.staging.stg_snowflake__tasks', 'dbt_project.staging.stg_snowflake__subscriptions', 'dbt_project.staging.stg_snowflake__comments', 'dbt_project.staging.stg_snowflake__users', 'dbt_project.staging.stg_snowflake__workspaces', 'dbt_project.staging.stg_snowflake__projects', 'dbt_project.staging.stg_snowflake__invoices', 'dbt_project.staging.stg_snowflake__payments']`.
+[32m2025-01-21 06:51:45 +0600[0m - dagster - [34mINFO[0m - __ASSET_JOB - e313426c-f968-4f37-893d-0beaa7236f19 - dbt_project_dbt_assets - Copying `/media/taeef/Projects58/Sidetrek/DataEngineering/b2b-saas-pipeline/dbt_project/target/partial_parse.msgpack` to `/media/taeef/Projects58/Sidetrek/DataEngineering/b2b-saas-pipeline/dbt_project/target/dbt_project_dbt_assets-e313426-926eff7/partial_parse.msgpack` to take advantage of partial parsing.
+INFO:dagster.builtin:__ASSET_JOB - e313426c-f968-4f37-893d-0beaa7236f19 - dbt_project_dbt_assets - Copying `/media/taeef/Projects58/Sidetrek/DataEngineering/b2b-saas-pipeline/dbt_project/target/partial_parse.msgpack` to `/media/taeef/Projects58/Sidetrek/DataEngineering/b2b-saas-pipeline/dbt_project/target/dbt_project_dbt_assets-e313426-926eff7/partial_parse.msgpack` to take advantage of partial parsing.
+[32m2025-01-21 06:51:45 +0600[0m - dagster - [34mINFO[0m - __ASSET_JOB - e313426c-f968-4f37-893d-0beaa7236f19 - dbt_project_dbt_assets - Running dbt command: `dbt build --select dbt_project.staging.stg_snowflake__tasks dbt_project.staging.stg_snowflake__subscriptions dbt_project.staging.stg_snowflake__comments dbt_project.staging.stg_snowflake__users dbt_project.staging.stg_snowflake__workspaces dbt_project.staging.stg_snowflake__projects dbt_project.staging.stg_snowflake__invoices dbt_project.staging.stg_snowflake__payments`.
+INFO:dagster.builtin:__ASSET_JOB - e313426c-f968-4f37-893d-0beaa7236f19 - dbt_project_dbt_assets - Running dbt command: `dbt build --select dbt_project.staging.stg_snowflake__tasks dbt_project.staging.stg_snowflake__subscriptions dbt_project.staging.stg_snowflake__comments dbt_project.staging.stg_snowflake__users dbt_project.staging.stg_snowflake__workspaces dbt_project.staging.stg_snowflake__projects dbt_project.staging.stg_snowflake__invoices dbt_project.staging.stg_snowflake__payments`.
+[32m2025-01-21 06:51:49 +0600[0m - dagster - [34mINFO[0m - __ASSET_JOB - e313426c-f968-4f37-893d-0beaa7236f19 - dbt_project_dbt_assets - Finished dbt command: `dbt build --select dbt_project.staging.stg_snowflake__tasks dbt_project.staging.stg_snowflake__subscriptions dbt_project.staging.stg_snowflake__comments dbt_project.staging.stg_snowflake__users dbt_project.staging.stg_snowflake__workspaces dbt_project.staging.stg_snowflake__projects dbt_project.staging.stg_snowflake__invoices dbt_project.staging.stg_snowflake__payments`.
+INFO:dagster.builtin:__ASSET_JOB - e313426c-f968-4f37-893d-0beaa7236f19 - dbt_project_dbt_assets - Finished dbt command: `dbt build --select dbt_project.staging.stg_snowflake__tasks dbt_project.staging.stg_snowflake__subscriptions dbt_project.staging.stg_snowflake__comments dbt_project.staging.stg_snowflake__users dbt_project.staging.stg_snowflake__workspaces dbt_project.staging.stg_snowflake__projects dbt_project.staging.stg_snowflake__invoices dbt_project.staging.stg_snowflake__payments`.
+[32m2025-01-21 06:51:49 +0600[0m - dagster - [34mERROR[0m - [31m__ASSET_JOB - e313426c-f968-4f37-893d-0beaa7236f19 - 591839 - dbt_project_dbt_assets - STEP_FAILURE - Execution of step "dbt_project_dbt_assets" failed.
+
+dagster_dbt.errors.DagsterDbtCliRuntimeError: The dbt CLI process with command
+
+`dbt build --select dbt_project.staging.stg_snowflake__tasks dbt_project.staging.stg_snowflake__subscriptions dbt_project.staging.stg_snowflake__comments dbt_project.staging.stg_snowflake__users dbt_project.staging.stg_snowflake__workspaces dbt_project.staging.stg_snowflake__projects dbt_project.staging.stg_snowflake__invoices dbt_project.staging.stg_snowflake__payments`
+
+failed with exit code `1`. Check the stdout in the Dagster compute logs for the full information about the error, or view the dbt debug log: /media/taeef/Projects58/Sidetrek/DataEngineering/b2b-saas-pipeline/dbt_project/target/dbt_project_dbt_assets-e313426-926eff7/dbt.log.
+
+Errors parsed from dbt logs:
+
+1 of 24 ERROR creating sql table model SAAS_RAW_STAGING.stg_snowflake__comments  [[31mERROR[0m in 0.15s]
+
+2 of 24 ERROR creating sql table model SAAS_RAW_STAGING.stg_snowflake__invoices  [[31mERROR[0m in 0.15s]
+
+3 of 24 ERROR creating sql table model SAAS_RAW_STAGING.stg_snowflake__payments  [[31mERROR[0m in 0.13s]
+
+4 of 24 ERROR creating sql view model SAAS_RAW_STAGING.stg_snowflake__projects . [[31mERROR[0m in 0.14s]
+
+5 of 24 ERROR creating sql view model SAAS_RAW_STAGING.stg_snowflake__subscriptions  [[31mERROR[0m in 0.12s]
+
+6 of 24 ERROR creating sql table model SAAS_RAW_STAGING.stg_snowflake__tasks ... [[31mERROR[0m in 0.12s]
+
+7 of 24 ERROR creating sql view model SAAS_RAW_STAGING.stg_snowflake__users .... [[31mERROR[0m in 0.12s]
+
+8 of 24 ERROR creating sql view model SAAS_RAW_STAGING.stg_snowflake__workspaces  [[31mERROR[0m in 0.12s]
+
+  Database Error in model stg_snowflake__comments (models/staging/stg_snowflake__comments.sql)
+  002003 (02000): SQL compilation error:
+  Schema 'SAAS_SF.SAAS_RAW' does not exist or not authorized.
+  compiled code at target/dbt_project_dbt_assets-e313426-926eff7/run/dbt_project/models/staging/stg_snowflake__comments.sql
+
+  Database Error in model stg_snowflake__invoices (models/staging/stg_snowflake__invoices.sql)
+  002003 (02000): SQL compilation error:
+  Schema 'SAAS_SF.SAAS_RAW' does not exist or not authorized.
+  compiled code at target/dbt_project_dbt_assets-e313426-926eff7/run/dbt_project/models/staging/stg_snowflake__invoices.sql
+
+  Database Error in model stg_snowflake__payments (models/staging/stg_snowflake__payments.sql)
+  002003 (02000): SQL compilation error:
+  Schema 'SAAS_SF.SAAS_RAW' does not exist or not authorized.
+  compiled code at target/dbt_project_dbt_assets-e313426-926eff7/run/dbt_project/models/staging/stg_snowflake__payments.sql
+
+  Database Error in model stg_snowflake__projects (models/staging/stg_snowflake__projects.sql)
+  002003 (02000): SQL compilation error:
+  Schema 'SAAS_SF.SAAS_RAW' does not exist or not authorized.
+  compiled code at target/dbt_project_dbt_assets-e313426-926eff7/run/dbt_project/models/staging/stg_snowflake__projects.sql
+
+  Database Error in model stg_snowflake__subscriptions (models/staging/stg_snowflake__subscriptions.sql)
+  002003 (02000): SQL compilation error:
+  Schema 'SAAS_SF.SAAS_RAW' does not exist or not authorized.
+  compiled code at target/dbt_project_dbt_assets-e313426-926eff7/run/dbt_project/models/staging/stg_snowflake__subscriptions.sql
+
+  Database Error in model stg_snowflake__tasks (models/staging/stg_snowflake__tasks.sql)
+  002003 (02000): SQL compilation error:
+  Schema 'SAAS_SF.SAAS_RAW' does not exist or not authorized.
+  compiled code at target/dbt_project_dbt_assets-e313426-926eff7/run/dbt_project/models/staging/stg_snowflake__tasks.sql
+
+  Database Error in model stg_snowflake__users (models/staging/stg_snowflake__users.sql)
+  002003 (02000): SQL compilation error:
+  Schema 'SAAS_SF.SAAS_RAW' does not exist or not authorized.
+  compiled code at target/dbt_project_dbt_assets-e313426-926eff7/run/dbt_project/models/staging/stg_snowflake__users.sql
+
+  Database Error in model stg_snowflake__workspaces (models/staging/stg_snowflake__workspaces.sql)
+  002003 (02000): SQL compilation error:
+  Schema 'SAAS_SF.SAAS_RAW' does not exist or not authorized.
+  compiled code at target/dbt_project_dbt_assets-e313426-926eff7/run/dbt_project/models/staging/stg_snowflake__workspaces.sql
+
+Stack Trace:
+  File "/media/taeef/Projects58/Sidetrek/DataEngineering/b2b-saas-pipeline/venv/lib/python3.10/site-packages/dagster/_core/execution/plan/execute_plan.py", line 245, in dagster_event_sequence_for_step
+    yield from check.generator(step_events)
+  File "/media/taeef/Projects58/Sidetrek/DataEngineering/b2b-saas-pipeline/venv/lib/python3.10/site-packages/dagster/_core/execution/plan/execute_step.py", line 501, in core_dagster_event_sequence_for_step
+    for user_event in _step_output_error_checked_user_event_sequence(
+  File "/media/taeef/Projects58/Sidetrek/DataEngineering/b2b-saas-pipeline/venv/lib/python3.10/site-packages/dagster/_core/execution/plan/execute_step.py", line 184, in _step_output_error_checked_user_event_sequence
+    for user_event in user_event_sequence:
+  File "/media/taeef/Projects58/Sidetrek/DataEngineering/b2b-saas-pipeline/venv/lib/python3.10/site-packages/dagster/_core/execution/plan/execute_step.py", line 88, in _process_asset_results_to_events
+    for user_event in user_event_sequence:
+  File "/media/taeef/Projects58/Sidetrek/DataEngineering/b2b-saas-pipeline/venv/lib/python3.10/site-packages/dagster/_core/execution/plan/compute.py", line 190, in execute_core_compute
+    for step_output in _yield_compute_results(step_context, inputs, compute_fn, compute_context):
+  File "/media/taeef/Projects58/Sidetrek/DataEngineering/b2b-saas-pipeline/venv/lib/python3.10/site-packages/dagster/_core/execution/plan/compute.py", line 159, in _yield_compute_results
+    for event in iterate_with_context(
+  File "/media/taeef/Projects58/Sidetrek/DataEngineering/b2b-saas-pipeline/venv/lib/python3.10/site-packages/dagster/_utils/__init__.py", line 480, in iterate_with_context
+    next_output = next(iterator)
+  File "/media/taeef/Projects58/Sidetrek/DataEngineering/b2b-saas-pipeline/b2b-saas-project/b2b_saas_project/assets.py", line 28, in dbt_project_dbt_assets
+    yield from dbt.cli(["build"], context=context).stream()
+  File "/media/taeef/Projects58/Sidetrek/DataEngineering/b2b-saas-pipeline/venv/lib/python3.10/site-packages/dagster_dbt/core/dbt_event_iterator.py", line 203, in __next__
+    return next(self._inner_iterator)
+  File "/media/taeef/Projects58/Sidetrek/DataEngineering/b2b-saas-pipeline/venv/lib/python3.10/site-packages/dagster_dbt/core/dbt_cli_invocation.py", line 275, in _stream_asset_events
+    for event in self.stream_raw_events():
+  File "/media/taeef/Projects58/Sidetrek/DataEngineering/b2b-saas-pipeline/venv/lib/python3.10/site-packages/dagster_dbt/core/dbt_cli_invocation.py", line 368, in stream_raw_events
+    self._raise_on_error()
+  File "/media/taeef/Projects58/Sidetrek/DataEngineering/b2b-saas-pipeline/venv/lib/python3.10/site-packages/dagster_dbt/core/dbt_cli_invocation.py", line 461, in _raise_on_error
+    raise error
+[0m

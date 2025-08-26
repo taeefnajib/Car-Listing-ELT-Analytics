@@ -1,0 +1,53 @@
+[32m2025-01-21 07:27:00 +0600[0m - dagster - [34mDEBUG[0m - __ASSET_JOB - 11631121-2304-414e-9892-746d7fe48406 - 672719 - LOGS_CAPTURED - Started capturing logs in process (pid: 672719).
+[32m2025-01-21 07:27:00 +0600[0m - dagster - [34mDEBUG[0m - __ASSET_JOB - 11631121-2304-414e-9892-746d7fe48406 - 672719 - dbt_project_dbt_assets - STEP_START - Started execution of step "dbt_project_dbt_assets".
+[32m2025-01-21 07:27:00 +0600[0m - dagster - [34mINFO[0m - __ASSET_JOB - 11631121-2304-414e-9892-746d7fe48406 - dbt_project_dbt_assets - A dbt subsetted execution is being performed. Overriding default dbt selection arguments `['--select', 'fqn:*']` with arguments: `['dbt_project.intermediate.int_snowflake__workspace_metrics']`.
+INFO:dagster.builtin:__ASSET_JOB - 11631121-2304-414e-9892-746d7fe48406 - dbt_project_dbt_assets - A dbt subsetted execution is being performed. Overriding default dbt selection arguments `['--select', 'fqn:*']` with arguments: `['dbt_project.intermediate.int_snowflake__workspace_metrics']`.
+[32m2025-01-21 07:27:00 +0600[0m - dagster - [34mINFO[0m - __ASSET_JOB - 11631121-2304-414e-9892-746d7fe48406 - dbt_project_dbt_assets - Copying `/media/taeef/Projects58/Sidetrek/DataEngineering/b2b-saas-pipeline/dbt_project/target/partial_parse.msgpack` to `/media/taeef/Projects58/Sidetrek/DataEngineering/b2b-saas-pipeline/dbt_project/target/dbt_project_dbt_assets-1163112-0c4eb17/partial_parse.msgpack` to take advantage of partial parsing.
+INFO:dagster.builtin:__ASSET_JOB - 11631121-2304-414e-9892-746d7fe48406 - dbt_project_dbt_assets - Copying `/media/taeef/Projects58/Sidetrek/DataEngineering/b2b-saas-pipeline/dbt_project/target/partial_parse.msgpack` to `/media/taeef/Projects58/Sidetrek/DataEngineering/b2b-saas-pipeline/dbt_project/target/dbt_project_dbt_assets-1163112-0c4eb17/partial_parse.msgpack` to take advantage of partial parsing.
+[32m2025-01-21 07:27:00 +0600[0m - dagster - [34mINFO[0m - __ASSET_JOB - 11631121-2304-414e-9892-746d7fe48406 - dbt_project_dbt_assets - Running dbt command: `dbt build --select dbt_project.intermediate.int_snowflake__workspace_metrics`.
+INFO:dagster.builtin:__ASSET_JOB - 11631121-2304-414e-9892-746d7fe48406 - dbt_project_dbt_assets - Running dbt command: `dbt build --select dbt_project.intermediate.int_snowflake__workspace_metrics`.
+[32m2025-01-21 07:27:04 +0600[0m - dagster - [34mINFO[0m - __ASSET_JOB - 11631121-2304-414e-9892-746d7fe48406 - dbt_project_dbt_assets - Finished dbt command: `dbt build --select dbt_project.intermediate.int_snowflake__workspace_metrics`.
+INFO:dagster.builtin:__ASSET_JOB - 11631121-2304-414e-9892-746d7fe48406 - dbt_project_dbt_assets - Finished dbt command: `dbt build --select dbt_project.intermediate.int_snowflake__workspace_metrics`.
+[32m2025-01-21 07:27:04 +0600[0m - dagster - [34mERROR[0m - [31m__ASSET_JOB - 11631121-2304-414e-9892-746d7fe48406 - 672719 - dbt_project_dbt_assets - STEP_FAILURE - Execution of step "dbt_project_dbt_assets" failed.
+
+dagster_dbt.errors.DagsterDbtCliRuntimeError: The dbt CLI process with command
+
+`dbt build --select dbt_project.intermediate.int_snowflake__workspace_metrics`
+
+failed with exit code `1`. Check the stdout in the Dagster compute logs for the full information about the error, or view the dbt debug log: /media/taeef/Projects58/Sidetrek/DataEngineering/b2b-saas-pipeline/dbt_project/target/dbt_project_dbt_assets-1163112-0c4eb17/dbt.log.
+
+Errors parsed from dbt logs:
+
+1 of 3 ERROR creating sql table model PROJECT_INTERMEDIATE.int_snowflake__workspace_metrics  [[31mERROR[0m in 0.26s]
+
+  Database Error in model int_snowflake__workspace_metrics (models/intermediate/int_snowflake__workspace_metrics.sql)
+  002025 (42S21): SQL compilation error:
+  duplicate column name 'TOTAL_USERS'
+  compiled code at target/dbt_project_dbt_assets-1163112-0c4eb17/run/dbt_project/models/intermediate/int_snowflake__workspace_metrics.sql
+
+Stack Trace:
+  File "/media/taeef/Projects58/Sidetrek/DataEngineering/b2b-saas-pipeline/venv/lib/python3.10/site-packages/dagster/_core/execution/plan/execute_plan.py", line 245, in dagster_event_sequence_for_step
+    yield from check.generator(step_events)
+  File "/media/taeef/Projects58/Sidetrek/DataEngineering/b2b-saas-pipeline/venv/lib/python3.10/site-packages/dagster/_core/execution/plan/execute_step.py", line 501, in core_dagster_event_sequence_for_step
+    for user_event in _step_output_error_checked_user_event_sequence(
+  File "/media/taeef/Projects58/Sidetrek/DataEngineering/b2b-saas-pipeline/venv/lib/python3.10/site-packages/dagster/_core/execution/plan/execute_step.py", line 184, in _step_output_error_checked_user_event_sequence
+    for user_event in user_event_sequence:
+  File "/media/taeef/Projects58/Sidetrek/DataEngineering/b2b-saas-pipeline/venv/lib/python3.10/site-packages/dagster/_core/execution/plan/execute_step.py", line 88, in _process_asset_results_to_events
+    for user_event in user_event_sequence:
+  File "/media/taeef/Projects58/Sidetrek/DataEngineering/b2b-saas-pipeline/venv/lib/python3.10/site-packages/dagster/_core/execution/plan/compute.py", line 190, in execute_core_compute
+    for step_output in _yield_compute_results(step_context, inputs, compute_fn, compute_context):
+  File "/media/taeef/Projects58/Sidetrek/DataEngineering/b2b-saas-pipeline/venv/lib/python3.10/site-packages/dagster/_core/execution/plan/compute.py", line 159, in _yield_compute_results
+    for event in iterate_with_context(
+  File "/media/taeef/Projects58/Sidetrek/DataEngineering/b2b-saas-pipeline/venv/lib/python3.10/site-packages/dagster/_utils/__init__.py", line 480, in iterate_with_context
+    next_output = next(iterator)
+  File "/media/taeef/Projects58/Sidetrek/DataEngineering/b2b-saas-pipeline/b2b-saas-project/b2b_saas_project/assets.py", line 28, in dbt_project_dbt_assets
+    yield from dbt.cli(["build"], context=context).stream()
+  File "/media/taeef/Projects58/Sidetrek/DataEngineering/b2b-saas-pipeline/venv/lib/python3.10/site-packages/dagster_dbt/core/dbt_event_iterator.py", line 203, in __next__
+    return next(self._inner_iterator)
+  File "/media/taeef/Projects58/Sidetrek/DataEngineering/b2b-saas-pipeline/venv/lib/python3.10/site-packages/dagster_dbt/core/dbt_cli_invocation.py", line 275, in _stream_asset_events
+    for event in self.stream_raw_events():
+  File "/media/taeef/Projects58/Sidetrek/DataEngineering/b2b-saas-pipeline/venv/lib/python3.10/site-packages/dagster_dbt/core/dbt_cli_invocation.py", line 368, in stream_raw_events
+    self._raise_on_error()
+  File "/media/taeef/Projects58/Sidetrek/DataEngineering/b2b-saas-pipeline/venv/lib/python3.10/site-packages/dagster_dbt/core/dbt_cli_invocation.py", line 461, in _raise_on_error
+    raise error
+[0m

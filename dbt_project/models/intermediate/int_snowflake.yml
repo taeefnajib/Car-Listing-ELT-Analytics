@@ -1,0 +1,225 @@
+version: 2
+
+groups:
+  - name: intermediate
+    owner:
+      name: sidetrek
+
+sources:
+  - name: staging
+    database: SAAS_SF
+    schema: staging
+    tables:
+      - name: stg_snowflake__users
+      - name: stg_snowflake__workspaces
+      - name: stg_snowflake__projects
+      - name: stg_snowflake__tasks
+      - name: stg_snowflake__subscriptions
+      - name: stg_snowflake__invoices
+      - name: stg_snowflake__payments
+      - name: stg_snowflake__comments
+
+models:
+  - name: int_snowflake__workspace_metrics
+    description: Denormalized workspace metrics combining activity, project, and subscription data
+    columns:
+      - name: workspace_id
+        tests:
+          - unique
+          - not_null
+      - name: daily_active_users
+        description: Count of users who performed any activity today
+      - name: weekly_active_users
+        description: Count of users who performed any activity in the last 7 days
+      - name: monthly_active_users
+        description: Count of users who performed any activity in the last 30 days
+      - name: total_users
+        description: Total number of users in the workspace
+      - name: new_users_last_month
+        description: Number of new users added in the last 30 days
+      - name: mau_percentage
+        description: Percentage of total users who are monthly active
+      - name: total_projects
+        description: Total number of projects in workspace
+      - name: completed_projects
+        description: Number of completed projects
+      - name: avg_project_completion_rate
+        description: Average completion rate across all projects
+      - name: avg_weekly_completion_rate
+        description: Average task completion rate in the last 7 days
+      - name: total_tasks_completed_last_week
+        description: Total number of tasks completed in the last 7 days
+
+  - name: int_snowflake__user_engagement
+    description: User activity patterns and feature adoption metrics
+    columns:
+      - name: user_id
+        tests:
+          - unique
+          - not_null
+      - name: tasks_created_30d
+        description: Number of tasks created by user in last 30 days
+      - name: active_days_30d
+        description: Number of days user was active in last 30 days
+      - name: comments_30d
+        description: Number of comments made by user in last 30 days
+      - name: comment_days_30d
+        description: Number of days user made comments in last 30 days
+      - name: has_created_task
+        description: Whether user has ever created a task
+      - name: has_used_comments
+        description: Whether user has ever made a comment
+      - name: user_status
+        description: User classification (power_user, active_user, casual_user, inactive)
+      - name: engagement_score
+        description: Composite score (0-100) based on activity and feature usage
+
+  - name: int_snowflake__financial_metrics
+    description: Workspace-level financial metrics including MRR/ARR trends and churn analysis
+    columns:
+      - name: workspace_id
+        tests:
+          - unique
+          - not_null
+      - name: workspace_name
+        description: Name of the workspace
+      - name: current_mrr
+        description: Current Monthly Recurring Revenue
+      - name: current_arr
+        description: Current Annual Recurring Revenue
+      - name: active_subscriptions
+        description: Number of active subscriptions
+      - name: last_subscription_start
+        description: Start date of most recent subscription
+      - name: total_new_mrr
+        description: Total MRR from new subscriptions
+      - name: total_expansion_mrr
+        description: Total MRR from subscription upgrades
+      - name: total_churned_mrr
+        description: Total MRR lost from churned subscriptions
+      - name: is_churned
+        description: Whether the workspace has churned
+      - name: expansion_rate
+        description: Percentage of new MRR from expansions
+      - name: churn_rate
+        description: Percentage of MRR lost to churn
+
+  - name: int_snowflake__users
+    description: Intermediate model for users with additional metrics
+    columns:
+      - name: user_id
+        tests:
+          - unique
+          - not_null
+      - name: tasks_created_count
+        description: Number of tasks created by the user
+      - name: tasks_assigned_count
+        description: Number of tasks assigned to the user
+      - name: comments_count
+        description: Number of comments made by the user
+      - name: projects_created_count
+        description: Number of projects created by the user
+      - name: last_activity_at
+        description: Timestamp of user's last activity (task/comment/project creation)
+
+  - name: int_snowflake__workspaces
+    description: Intermediate model for workspaces with additional metrics
+    columns:
+      - name: workspace_id
+        tests:
+          - unique
+          - not_null
+      - name: total_projects
+        description: Total number of projects in workspace
+      - name: total_tasks
+        description: Total number of tasks in workspace
+      - name: active_users_count
+        description: Number of users with activity in last 30 days
+      - name: total_storage_used
+        description: Total storage used by attachments
+      - name: subscription_status
+        description: Current subscription status
+
+  - name: int_snowflake__projects
+    description: Intermediate model for projects with additional metrics
+    columns:
+      - name: project_id
+        tests:
+          - unique
+          - not_null
+      - name: total_tasks
+        description: Total number of tasks in project
+      - name: completed_tasks
+        description: Number of completed tasks
+      - name: completion_rate
+        description: Percentage of completed tasks
+      - name: avg_task_completion_time
+        description: Average time to complete tasks
+      - name: total_comments
+        description: Total number of comments in project tasks
+
+  - name: int_snowflake__tasks
+    description: Intermediate model for tasks with additional metrics
+    columns:
+      - name: task_id
+        tests:
+          - unique
+          - not_null
+      - name: time_to_complete
+        description: Time taken to complete task (if completed)
+      - name: comments_count
+        description: Number of comments on task
+      - name: subtasks_count
+        description: Number of subtasks
+      - name: completion_status
+        description: Detailed status with overdue information
+      - name: last_activity_at
+        description: Last comment or update timestamp
+
+  - name: int_snowflake__subscriptions
+    description: Intermediate model for subscriptions with additional metrics
+    columns:
+      - name: subscription_id
+        tests:
+          - unique
+          - not_null
+      - name: total_amount_billed
+        description: Total amount billed over subscription lifetime
+      - name: subscription_age_months
+        description: Number of months since subscription started
+      - name: total_seats_used
+        description: Current number of active users
+      - name: seats_utilization
+        description: Percentage of purchased seats being used
+      - name: churn_risk
+        description: High/Medium/Low based on usage patterns
+
+  - name: int_snowflake__invoices
+    description: Intermediate model for invoices with additional metrics
+    columns:
+      - name: invoice_id
+        tests:
+          - unique
+          - not_null
+      - name: days_to_pay
+        description: Number of days between creation and payment
+      - name: payment_status
+        description: Detailed payment status
+      - name: total_adjustments
+        description: Total adjustments/credits applied
+      - name: is_overdue
+        description: Whether invoice is overdue
+
+  - name: int_snowflake__payments
+    description: Intermediate model for payments with additional metrics
+    columns:
+      - name: payment_id
+        tests:
+          - unique
+          - not_null
+      - name: payment_success_rate
+        description: Success rate for payment method
+      - name: retry_count
+        description: Number of payment retries
+      - name: processing_time
+        description: Time taken to process payment 

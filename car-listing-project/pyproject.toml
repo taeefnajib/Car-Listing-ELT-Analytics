@@ -1,0 +1,33 @@
+[project]
+name = "car_listing-project"
+version = "0.0.1"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.8"
+dependencies = [
+    "dagster",
+    "dagster-cloud",
+    "dagster-embedded-elt",
+    "dagster-dbt",
+    "psycopg2-binary",
+    "humanize",
+    "pymysql",
+    "dlt[postgres]",
+]
+
+[project.optional-dependencies]
+dev = [
+    "dagster-webserver", 
+    "pytest",
+]
+
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[tool.dagster]
+module_name = "car_listing_project"
+project_name = "car_listing_project"
+
+[tool.setuptools.packages.find]
+exclude=["car_listing_project_tests"]

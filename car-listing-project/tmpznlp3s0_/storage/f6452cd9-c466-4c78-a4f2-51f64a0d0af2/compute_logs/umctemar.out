@@ -1,0 +1,87 @@
+Running with dbt=1.9.1
+Registered adapter: snowflake=1.9.0
+Found 18 models, 36 data tests, 16 sources, 470 macros, 2 groups
+
+Concurrency: 1 threads (target='dev')
+
+1 of 30 START sql table model PROJECT_INTERMEDIATE.int_snowflake__financial_metrics  [RUN]
+1 of 30 ERROR creating sql table model PROJECT_INTERMEDIATE.int_snowflake__financial_metrics  [[31mERROR[0m in 0.21s]
+2 of 30 START sql table model PROJECT_INTERMEDIATE.int_snowflake__invoices ..... [RUN]
+2 of 30 OK created sql table model PROJECT_INTERMEDIATE.int_snowflake__invoices  [[32mSUCCESS 1[0m in 0.69s]
+3 of 30 START sql table model PROJECT_INTERMEDIATE.int_snowflake__payments ..... [RUN]
+3 of 30 OK created sql table model PROJECT_INTERMEDIATE.int_snowflake__payments  [[32mSUCCESS 1[0m in 0.68s]
+4 of 30 START sql table model PROJECT_INTERMEDIATE.int_snowflake__projects ..... [RUN]
+4 of 30 ERROR creating sql table model PROJECT_INTERMEDIATE.int_snowflake__projects  [[31mERROR[0m in 0.18s]
+5 of 30 START sql table model PROJECT_INTERMEDIATE.int_snowflake__subscriptions  [RUN]
+5 of 30 OK created sql table model PROJECT_INTERMEDIATE.int_snowflake__subscriptions  [[32mSUCCESS 1[0m in 0.74s]
+6 of 30 START sql table model PROJECT_INTERMEDIATE.int_snowflake__tasks ........ [RUN]
+6 of 30 OK created sql table model PROJECT_INTERMEDIATE.int_snowflake__tasks ... [[32mSUCCESS 1[0m in 0.77s]
+7 of 30 START sql table model PROJECT_INTERMEDIATE.int_snowflake__user_engagement  [RUN]
+7 of 30 OK created sql table model PROJECT_INTERMEDIATE.int_snowflake__user_engagement  [[32mSUCCESS 1[0m in 0.92s]
+8 of 30 START sql table model PROJECT_INTERMEDIATE.int_snowflake__users ........ [RUN]
+8 of 30 ERROR creating sql table model PROJECT_INTERMEDIATE.int_snowflake__users  [[31mERROR[0m in 0.17s]
+9 of 30 START sql table model PROJECT_INTERMEDIATE.int_snowflake__workspace_metrics  [RUN]
+9 of 30 ERROR creating sql table model PROJECT_INTERMEDIATE.int_snowflake__workspace_metrics  [[31mERROR[0m in 0.17s]
+10 of 30 START sql table model PROJECT_INTERMEDIATE.int_snowflake__workspaces .. [RUN]
+10 of 30 ERROR creating sql table model PROJECT_INTERMEDIATE.int_snowflake__workspaces  [[31mERROR[0m in 0.20s]
+11 of 30 SKIP test not_null_int_snowflake__financial_metrics_workspace_id ...... [[33mSKIP[0m]
+12 of 30 SKIP test unique_int_snowflake__financial_metrics_workspace_id ........ [[33mSKIP[0m]
+13 of 30 START test not_null_int_snowflake__invoices_invoice_id ................ [RUN]
+13 of 30 PASS not_null_int_snowflake__invoices_invoice_id ...................... [[32mPASS[0m in 0.26s]
+14 of 30 START test unique_int_snowflake__invoices_invoice_id .................. [RUN]
+14 of 30 PASS unique_int_snowflake__invoices_invoice_id ........................ [[32mPASS[0m in 0.23s]
+15 of 30 START test not_null_int_snowflake__payments_payment_id ................ [RUN]
+15 of 30 PASS not_null_int_snowflake__payments_payment_id ...................... [[32mPASS[0m in 0.23s]
+16 of 30 START test unique_int_snowflake__payments_payment_id .................. [RUN]
+16 of 30 PASS unique_int_snowflake__payments_payment_id ........................ [[32mPASS[0m in 0.24s]
+17 of 30 SKIP test not_null_int_snowflake__projects_project_id ................. [[33mSKIP[0m]
+18 of 30 SKIP test unique_int_snowflake__projects_project_id ................... [[33mSKIP[0m]
+19 of 30 START test not_null_int_snowflake__subscriptions_subscription_id ...... [RUN]
+19 of 30 PASS not_null_int_snowflake__subscriptions_subscription_id ............ [[32mPASS[0m in 0.22s]
+20 of 30 START test unique_int_snowflake__subscriptions_subscription_id ........ [RUN]
+20 of 30 PASS unique_int_snowflake__subscriptions_subscription_id .............. [[32mPASS[0m in 0.44s]
+21 of 30 START test not_null_int_snowflake__tasks_task_id ...................... [RUN]
+21 of 30 PASS not_null_int_snowflake__tasks_task_id ............................ [[32mPASS[0m in 0.22s]
+22 of 30 START test unique_int_snowflake__tasks_task_id ........................ [RUN]
+22 of 30 PASS unique_int_snowflake__tasks_task_id .............................. [[32mPASS[0m in 0.25s]
+23 of 30 START test not_null_int_snowflake__user_engagement_user_id ............ [RUN]
+23 of 30 PASS not_null_int_snowflake__user_engagement_user_id .................. [[32mPASS[0m in 0.22s]
+24 of 30 START test unique_int_snowflake__user_engagement_user_id .............. [RUN]
+24 of 30 PASS unique_int_snowflake__user_engagement_user_id .................... [[32mPASS[0m in 0.23s]
+25 of 30 SKIP test not_null_int_snowflake__users_user_id ....................... [[33mSKIP[0m]
+26 of 30 SKIP test unique_int_snowflake__users_user_id ......................... [[33mSKIP[0m]
+27 of 30 SKIP test not_null_int_snowflake__workspace_metrics_workspace_id ...... [[33mSKIP[0m]
+28 of 30 SKIP test unique_int_snowflake__workspace_metrics_workspace_id ........ [[33mSKIP[0m]
+29 of 30 SKIP test not_null_int_snowflake__workspaces_workspace_id ............. [[33mSKIP[0m]
+30 of 30 SKIP test unique_int_snowflake__workspaces_workspace_id ............... [[33mSKIP[0m]
+
+Finished running 10 table models, 20 data tests in 0 hours 0 minutes and 9.07 seconds (9.07s).
+
+[31mCompleted with 5 errors, 0 partial successes, and 0 warnings:[0m
+
+  Database Error in model int_snowflake__financial_metrics (models/intermediate/int_snowflake__financial_metrics.sql)
+  002065 (42601): SQL compilation error:
+  Window function [LAG(SUBSCRIPTION_BASE.MRR) OVER (PARTITION BY SUBSCRIPTION_BASE.WORKSPACE_ID ORDER BY CAST(SUBSCRIPTION_BASE.CREATED_AT AS TIMESTAMP_LTZ(9)) ASC NULLS LAST)] may not appear inside an aggregate function.
+  compiled code at target/dbt_project_dbt_assets-f6452cd-78f9e03/run/dbt_project/models/intermediate/int_snowflake__financial_metrics.sql
+
+  Database Error in model int_snowflake__projects (models/intermediate/int_snowflake__projects.sql)
+  002025 (42S21): SQL compilation error:
+  duplicate column name 'TOTAL_TASKS'
+  compiled code at target/dbt_project_dbt_assets-f6452cd-78f9e03/run/dbt_project/models/intermediate/int_snowflake__projects.sql
+
+  Database Error in model int_snowflake__users (models/intermediate/int_snowflake__users.sql)
+  002025 (42S21): SQL compilation error:
+  duplicate column name 'TASKS_CREATED_COUNT'
+  compiled code at target/dbt_project_dbt_assets-f6452cd-78f9e03/run/dbt_project/models/intermediate/int_snowflake__users.sql
+
+  Database Error in model int_snowflake__workspace_metrics (models/intermediate/int_snowflake__workspace_metrics.sql)
+  000904 (42000): SQL compilation error: error line 14 at position 8
+  invalid identifier 'IS_CHURNED'
+  compiled code at target/dbt_project_dbt_assets-f6452cd-78f9e03/run/dbt_project/models/intermediate/int_snowflake__workspace_metrics.sql
+
+  Database Error in model int_snowflake__workspaces (models/intermediate/int_snowflake__workspaces.sql)
+  002140 (42601): SQL compilation error:
+  Unknown functions JSONB_ARRAY_LENGTH, JSONB_ARRAY_LENGTH
+  compiled code at target/dbt_project_dbt_assets-f6452cd-78f9e03/run/dbt_project/models/intermediate/int_snowflake__workspaces.sql
+
+Done. PASS=15 WARN=0 ERROR=5 SKIP=10 TOTAL=30

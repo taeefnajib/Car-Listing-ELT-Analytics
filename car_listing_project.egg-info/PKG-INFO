@@ -1,0 +1,168 @@
+Metadata-Version: 2.4
+Name: car_listing_project
+Version: 0.1.0
+Summary: This project builds an ELT pipeline to take data from CSV, loads it in Postgres and finally transform it. Additionally, it visualizes the dataset using Superset.
+Requires-Python: <3.13,>=3.9
+Description-Content-Type: text/markdown
+Requires-Dist: dagster
+Requires-Dist: dagster-cloud
+Requires-Dist: dagster-webserver
+Requires-Dist: dagster-dbt
+Requires-Dist: dagster-embedded-elt
+Requires-Dist: dbt-postgres
+Requires-Dist: dlt[postgres]
+Requires-Dist: psycopg2-binary
+Requires-Dist: urllib3<2.0.0
+Requires-Dist: requests-toolbelt
+Provides-Extra: dev
+Requires-Dist: dagster-webserver; extra == "dev"
+Requires-Dist: pytest; extra == "dev"
+
+# B2B SaaS Analytics Pipeline
+
+This project sets up an end-to-end analytics pipeline that loads data from Supabase into Snowflake, transforms it with dbt, and visualizes it in Apache Superset.
+
+## Prerequisites
+
+- Python 3.8+
+- PostgreSQL
+- Supabase account and credentials
+- Snowflake account and credentials
+
+## Setup Instructions
+
+### 1. Set Up Python Environment
+
+```bash
+# Create a virtual environment
+python -m venv venv
+
+# Activate the virtual environment
+# On Windows:
+venv\Scripts\activate
+# On Unix or MacOS:
+source venv/bin/activate
+
+# Install dependencies
+pip install -r requirements.txt
+```
+
+### 2. Configure Data Pipeline
+
+```bash
+# Change directory to the project folder
+cd b2b-saas-project
+
+# Create .dlt folder if it doesn't exist
+mkdir -p .dlt
+```
+
+Create a `secrets.toml` file in the `.dlt` folder with the following structure:
+
+```toml
+[sources.sql_database.credentials]
+drivername = "postgresql+psycopg2"
+database = "your_database"
+password = "your_password"
+username = "your_username"
+host = "your_host"
+port = your_port
+
+[destination.snowflake]
+dataset_name = "saas_dataset"
+
+[destination.snowflake.credentials]
+database = "your_snowflake_db"
+password = "your_password"
+username = "your_username"
+host = "your_account"
+warehouse = "your_warehouse"
+role = "your_role"
+```
+
+### 3. Set Up Dagster
+
+```bash
+# Install Dagster dependencies
+pip install dagster dagster-webserver
+
+# Start Dagster webserver
+dagster dev
+```
+
+The Dagster UI will be available at http://localhost:3000
+
+### 4. Configure dbt
+
+Create a `profiles.yml` file in the `dbt_project` directory with the following structure:
+
+```yaml
+dbt_project:
+  outputs:
+    dev:
+      type: snowflake
+      account: your_account
+      user: your_username
+      password: your_password
+      role: your_role
+      database: your_database
+      warehouse: your_warehouse
+      schema: your_schema
+      threads: 1
+  target: dev
+```
+
+### 5. Run the Pipeline
+
+In the Dagster UI:
+1. Navigate to the Assets tab
+2. Select all assets
+3. Click "Materialize Selected"
+
+This will:
+- Load data from Supabase to Snowflake using dlt
+- Run dbt transformations on the loaded data
+
+### 6. Set Up Apache Superset
+
+```bash
+# Change directory to superset folder
+cd superset
+
+# Make scripts executable
+chmod +x setup_db.sh run_superset.sh
+
+# Set up the database
+./setup_db.sh
+
+# Start Superset
+./run_superset.sh
+```
+
+When running `run_superset.sh`, you'll be prompted to create an admin user. Follow the prompts to set up your credentials.
+
+Superset will be available at http://localhost:8088
+
+### 7. Create Dashboard in Superset
+
+1. Log in to Superset using your admin credentials
+2. Go to Data → Databases and add your Snowflake connection
+3. Create new datasets from your transformed tables
+4. Create charts using these datasets
+5. Combine charts into a dashboard
+
+## Troubleshooting
+
+- If you encounter database connection issues, verify your credentials in `secrets.toml` and `profiles.yml`
+- For Superset connection issues, check `superset_config.py` settings
+- Make sure all required ports are available and not blocked by firewall
+
+## Security Note
+
+Never commit files containing credentials (`secrets.toml`, `profiles.yml`, `superset_config.py`) to version control. Add them to your `.gitignore` file.
+
+## Additional Resources
+
+- [dlt Documentation](https://dlthub.com/docs)
+- [dbt Documentation](https://docs.getdbt.com)
+- [Apache Superset Documentation](https://superset.apache.org/docs/intro)

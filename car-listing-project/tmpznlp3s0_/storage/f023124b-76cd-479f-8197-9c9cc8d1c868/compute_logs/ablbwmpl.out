@@ -1,0 +1,48 @@
+Running with dbt=1.9.1
+Registered adapter: snowflake=1.9.0
+Found 18 models, 36 data tests, 16 sources, 470 macros, 2 groups
+
+Concurrency: 1 threads (target='dev')
+
+1 of 15 START sql table model PROJECT_INTERMEDIATE.int_snowflake__financial_metrics  [RUN]
+1 of 15 OK created sql table model PROJECT_INTERMEDIATE.int_snowflake__financial_metrics  [[32mSUCCESS 1[0m in 0.79s]
+2 of 15 START sql table model PROJECT_INTERMEDIATE.int_snowflake__projects ..... [RUN]
+2 of 15 OK created sql table model PROJECT_INTERMEDIATE.int_snowflake__projects  [[32mSUCCESS 1[0m in 0.63s]
+3 of 15 START sql table model PROJECT_INTERMEDIATE.int_snowflake__users ........ [RUN]
+3 of 15 OK created sql table model PROJECT_INTERMEDIATE.int_snowflake__users ... [[32mSUCCESS 1[0m in 1.12s]
+4 of 15 START sql table model PROJECT_INTERMEDIATE.int_snowflake__workspace_metrics  [RUN]
+4 of 15 ERROR creating sql table model PROJECT_INTERMEDIATE.int_snowflake__workspace_metrics  [[31mERROR[0m in 0.13s]
+5 of 15 START sql table model PROJECT_INTERMEDIATE.int_snowflake__workspaces ... [RUN]
+5 of 15 ERROR creating sql table model PROJECT_INTERMEDIATE.int_snowflake__workspaces  [[31mERROR[0m in 0.15s]
+6 of 15 START test not_null_int_snowflake__financial_metrics_workspace_id ...... [RUN]
+6 of 15 PASS not_null_int_snowflake__financial_metrics_workspace_id ............ [[32mPASS[0m in 0.21s]
+7 of 15 START test unique_int_snowflake__financial_metrics_workspace_id ........ [RUN]
+7 of 15 PASS unique_int_snowflake__financial_metrics_workspace_id .............. [[32mPASS[0m in 0.19s]
+8 of 15 START test not_null_int_snowflake__projects_project_id ................. [RUN]
+8 of 15 PASS not_null_int_snowflake__projects_project_id ....................... [[32mPASS[0m in 0.21s]
+9 of 15 START test unique_int_snowflake__projects_project_id ................... [RUN]
+9 of 15 PASS unique_int_snowflake__projects_project_id ......................... [[32mPASS[0m in 0.22s]
+10 of 15 START test not_null_int_snowflake__users_user_id ...................... [RUN]
+10 of 15 PASS not_null_int_snowflake__users_user_id ............................ [[32mPASS[0m in 0.18s]
+11 of 15 START test unique_int_snowflake__users_user_id ........................ [RUN]
+11 of 15 PASS unique_int_snowflake__users_user_id .............................. [[32mPASS[0m in 0.22s]
+12 of 15 SKIP test not_null_int_snowflake__workspace_metrics_workspace_id ...... [[33mSKIP[0m]
+13 of 15 SKIP test unique_int_snowflake__workspace_metrics_workspace_id ........ [[33mSKIP[0m]
+14 of 15 SKIP test not_null_int_snowflake__workspaces_workspace_id ............. [[33mSKIP[0m]
+15 of 15 SKIP test unique_int_snowflake__workspaces_workspace_id ............... [[33mSKIP[0m]
+
+Finished running 5 table models, 10 data tests in 0 hours 0 minutes and 5.40 seconds (5.40s).
+
+[31mCompleted with 2 errors, 0 partial successes, and 0 warnings:[0m
+
+  Database Error in model int_snowflake__workspace_metrics (models/intermediate/int_snowflake__workspace_metrics.sql)
+  000904 (42000): SQL compilation error: error line 31 at position 11
+  invalid identifier 'U.WORKSPACE_ID'
+  compiled code at target/dbt_project_dbt_assets-f023124-d83bc7a/run/dbt_project/models/intermediate/int_snowflake__workspace_metrics.sql
+
+  Database Error in model int_snowflake__workspaces (models/intermediate/int_snowflake__workspaces.sql)
+  002025 (42S21): SQL compilation error:
+  duplicate column name 'TOTAL_PROJECTS'
+  compiled code at target/dbt_project_dbt_assets-f023124-d83bc7a/run/dbt_project/models/intermediate/int_snowflake__workspaces.sql
+
+Done. PASS=9 WARN=0 ERROR=2 SKIP=4 TOTAL=15
