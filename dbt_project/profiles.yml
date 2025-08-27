@@ -2,7 +2,7 @@ dbt_project:
   outputs:
     dev:
       type: postgres
-      host: postgres
+      host: localhost
       user: postgres
       password: postgres
       port: 5432

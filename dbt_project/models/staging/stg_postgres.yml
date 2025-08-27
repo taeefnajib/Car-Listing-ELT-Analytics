@@ -1,0 +1,194 @@
+version: 2
+
+groups:
+  - name: staging
+    owner:
+      name: taeefnajib
+
+sources:
+  - name: raw
+    database: postgres
+    schema: raw
+    tables:
+      - name: car_listings
+        description: Raw car listings data
+        meta:
+          dagster:
+            asset_key: "dlt_csv_filesystem_source_car_listings"
+        columns:
+          - name: area
+            description: Geographic area where the car is listed
+            data_type: varchar
+          - name: body_typex
+            description: Body type of the vehicle
+            data_type: varchar
+          - name: brandx
+            description: Brand/manufacturer of the vehicle
+            data_type: varchar
+          - name: conditionx
+            description: Condition of the vehicle
+            data_type: varchar
+          - name: engine_capacityx
+            description: Engine capacity/displacement
+            data_type: varchar
+          - name: fuel_typex
+            description: Type of fuel used by the vehicle
+            data_type: varchar
+          - name: kilometers_runx
+            description: Kilometers driven/mileage
+            data_type: varchar
+          - name: listing_title
+            description: Title of the car listing
+            data_type: varchar
+          - name: modelx
+            description: Model of the vehicle
+            data_type: varchar
+          - name: posted_on
+            description: Date when the listing was posted
+            data_type: varchar
+          - name: price
+            description: Listed price of the vehicle
+            data_type: varchar
+          - name: registration_yearx
+            description: Year of vehicle registration
+            data_type: double precision
+          - name: sold_by
+            description: Type of seller (dealer, individual, etc.)
+            data_type: varchar
+          - name: subarea
+            description: Specific subarea within the main area
+            data_type: varchar
+          - name: transmissionx
+            description: Transmission type of the vehicle
+            data_type: varchar
+          - name: url
+            description: URL of the original listing
+            data_type: varchar
+          - name: views
+            description: Number of views the listing received
+            data_type: double precision
+          - name: year_of_manufacturex
+            description: Manufacturing year of the vehicle
+            data_type: bigint
+          - name: _dlt_load_id
+            description: DLT load identifier
+            data_type: varchar
+            tests:
+              - not_null
+          - name: _dlt_id
+            description: DLT unique identifier
+            data_type: varchar
+            tests:
+              - not_null
+              - unique
+          - name: trim_editionx
+            description: Trim/edition level of the vehicle
+            data_type: varchar
+
+models:
+  - name: stg_postgres__car_listings
+    description: Staging model for car listings with cleaned and standardized data
+    columns:
+      - name: _dlt_load_id
+        description: DLT load identifier for tracking data lineage
+        data_type: varchar
+        tests:
+          - not_null
+      - name: _dlt_id
+        description: Unique identifier for each record
+        data_type: varchar
+        tests:
+          - unique
+          - not_null
+      # - name: area
+      #   description: Cleaned geographic area
+      #   data_type: varchar
+      #   tests:
+      #     - not_null
+      # - name: subarea
+      #   description: Cleaned subarea information
+      #   data_type: varchar
+      # - name: brand
+      #   description: Standardized vehicle brand
+      #   data_type: varchar
+      #   tests:
+      #     - not_null
+      # - name: model
+      #   description: Standardized vehicle model
+      #   data_type: varchar
+      #   tests:
+      #     - not_null
+      # - name: year_of_manufacture
+      #   description: Manufacturing year as integer
+      #   data_type: int
+      #   tests:
+      #     - not_null
+      #     - dbt_utils.accepted_range:
+      #         min_value: 1900
+      #         max_value: 2025
+      # - name: registration_year
+      #   description: Registration year as integer
+      #   data_type: int
+      #   tests:
+      #     - dbt_utils.accepted_range:
+      #         min_value: 1900
+      #         max_value: 2025
+      # - name: body_type
+      #   description: Standardized body type
+      #   data_type: varchar
+      # - name: fuel_type
+      #   description: Standardized fuel type
+      #   data_type: varchar
+      # - name: transmission
+      #   description: Standardized transmission type
+      #   data_type: varchar
+      # - name: engine_capacity
+      #   description: Engine capacity in standardized format
+      #   data_type: varchar
+      # - name: condition
+      #   description: Standardized vehicle condition
+      #   data_type: varchar
+      # - name: kilometers_run
+      #   description: Mileage as numeric value
+      #   data_type: numeric
+      #   tests:
+      #     - dbt_utils.accepted_range:
+      #         min_value: 0
+      #         max_value: 1000000
+      # - name: price
+      #   description: Price as numeric value
+      #   data_type: numeric
+      #   tests:
+      #     - dbt_utils.accepted_range:
+      #         min_value: 0
+      #         max_value: 10000000
+      # - name: trim_edition
+      #   description: Standardized trim/edition information
+      #   data_type: varchar
+      # - name: sold_by
+      #   description: Type of seller
+      #   data_type: varchar
+      # - name: views
+      #   description: Number of listing views
+      #   data_type: int
+      #   tests:
+      #     - dbt_utils.accepted_range:
+      #         min_value: 0
+      # - name: posted_on
+      #   description: Parsed posting date
+      #   data_type: date
+      # - name: listing_title
+      #   description: Cleaned listing title
+      #   data_type: varchar
+      #   tests:
+      #     - not_null
+      # - name: url
+      #   description: Original listing URL
+      #   data_type: varchar
+      #   tests:
+      #     - not_null
+      # - name: created_at
+      #   description: Timestamp when the record was processed in staging
+      #   data_type: timestamp
+      #   tests:
+      #     - not_null
